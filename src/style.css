@@ -31,6 +31,10 @@ a {
   color: inherit;
 }
 
+#all-tasks {
+  scroll-margin-top: 20px;
+}
+
 .app-shell {
   min-height: 100vh;
   display: grid;

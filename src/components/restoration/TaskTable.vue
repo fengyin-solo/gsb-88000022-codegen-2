@@ -18,17 +18,17 @@ defineProps({
       <span>负责人</span>
       <span>说明</span>
     </div>
-    <div
-      v-for="row in rows"
-      :key="`${row.title}-${row.owner}`"
-      class="task-row"
-    >
+    <div v-for="row in rows" :key="row.id" class="task-row">
       <span>{{ row.title }}</span>
-      <span>{{ row.stage }}</span>
+      <span :class="{ 'cell-missing': row.stageMissing }">
+        {{ row.stageDisplay }}
+      </span>
       <span :class="['risk-tag', `risk-tag--${riskMeta(row.risk).tone}`]">
         {{ riskMeta(row.risk).label }}
       </span>
-      <span>{{ row.owner }}</span>
+      <span :class="{ 'cell-missing': row.ownerMissing }">
+        {{ row.ownerDisplay }}
+      </span>
       <span>{{ row.note }}</span>
     </div>
   </div>
@@ -83,6 +83,22 @@ defineProps({
 .risk-tag--low {
   background: #d9ead9;
   color: #366338;
+}
+
+.cell-missing {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #913d2f;
+  font-weight: 700;
+}
+
+.cell-missing::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b85a45;
 }
 
 @media (max-width: 900px) {

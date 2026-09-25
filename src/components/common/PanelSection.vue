@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <section class="panel-section">
+  <section class="panel-section" v-bind="$attrs">
     <header class="panel-head">
       <h3>{{ title }}</h3>
       <span v-if="badge" class="badge">{{ badge }}</span>

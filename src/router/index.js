@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
 import BatchLibraryView from '../views/BatchLibraryView.vue'
 import TaskBoardView from '../views/TaskBoardView.vue'
+import HighRiskVolumeView from '../views/HighRiskVolumeView.vue'
 
 const routes = [
   {
@@ -19,6 +20,12 @@ const routes = [
     path: '/tasks',
     name: 'tasks',
     component: TaskBoardView,
+  },
+  {
+    path: '/tasks/volumes/:volumeCode',
+    name: 'high-risk-volume',
+    component: HighRiskVolumeView,
+    props: false,
   },
 ]
 
