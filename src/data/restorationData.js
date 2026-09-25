@@ -67,24 +67,48 @@ export const restorationSteps = [
 
 export const restorationTasks = [
   {
+    id: 'task-a03-1',
     title: '明抄本县志残卷',
+    volume: '卷上',
     stage: '补纸前',
     risk: 'high',
     owner: '韩澈',
     note: '虫道贯穿标题栏，需先固色。',
   },
   {
+    id: 'task-b11-1',
     title: '碑帖拓片册页',
+    volume: '册二',
     stage: '控湿中',
     risk: 'medium',
     owner: '陆宁',
     note: '边缘卷曲，可延后压平。',
   },
   {
+    id: 'task-c02-1',
     title: '戏曲抄本散页',
+    volume: '散页袋一',
     stage: '归档前',
     risk: 'low',
     owner: '周恬',
     note: '等待封套尺寸确认。',
+  },
+  {
+    id: 'task-a03-2',
+    title: '明抄本县志残卷',
+    volume: '卷下',
+    stage: '固色复核',
+    risk: 'high',
+    owner: '',
+    note: '卷下扉页霉斑待复核，尚未指派修复师。',
+  },
+  {
+    id: 'task-d07-1',
+    title: '宋刻本经折装残册',
+    volume: '册三',
+    stage: '',
+    risk: 'high',
+    owner: '沈沂',
+    note: '新入库残册，虫蛀范围与工序排期待评估。',
   },
 ]

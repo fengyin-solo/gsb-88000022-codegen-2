@@ -1,3 +1,6 @@
+export const MISSING_OWNER_LABEL = '未指派'
+export const MISSING_STAGE_LABEL = '阶段待确认'
+
 export function riskMeta(risk) {
   const map = {
     high: {
@@ -15,4 +18,22 @@ export function riskMeta(risk) {
   }
 
   return map[risk] ?? map.low
+}
+
+export function riskRank(risk) {
+  const map = {
+    high: 0,
+    medium: 1,
+    low: 2,
+  }
+
+  return map[risk] ?? map.low
+}
+
+export function ownerLabel(owner) {
+  return typeof owner === 'string' && owner.trim() ? owner : MISSING_OWNER_LABEL
+}
+
+export function stageLabel(stage) {
+  return typeof stage === 'string' && stage.trim() ? stage : MISSING_STAGE_LABEL
 }

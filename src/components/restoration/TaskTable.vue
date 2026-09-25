@@ -1,5 +1,9 @@
 <script setup>
-import { riskMeta } from '../../utils/restorationFormatters'
+import {
+  ownerLabel,
+  riskMeta,
+  stageLabel,
+} from '../../utils/restorationFormatters'
 
 defineProps({
   rows: {
@@ -20,15 +24,19 @@ defineProps({
     </div>
     <div
       v-for="row in rows"
-      :key="`${row.title}-${row.owner}`"
+      :key="row.id ?? `${row.title}-${row.owner}`"
       class="task-row"
     >
       <span>{{ row.title }}</span>
-      <span>{{ row.stage }}</span>
+      <span :class="{ 'missing-value': !row.stage }">
+        {{ stageLabel(row.stage) }}
+      </span>
       <span :class="['risk-tag', `risk-tag--${riskMeta(row.risk).tone}`]">
         {{ riskMeta(row.risk).label }}
       </span>
-      <span>{{ row.owner }}</span>
+      <span :class="{ 'missing-value': !row.owner }">
+        {{ ownerLabel(row.owner) }}
+      </span>
       <span>{{ row.note }}</span>
     </div>
   </div>
@@ -83,6 +91,11 @@ defineProps({
 .risk-tag--low {
   background: #d9ead9;
   color: #366338;
+}
+
+.missing-value {
+  color: #913d2f;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
